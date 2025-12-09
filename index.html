@@ -10,7 +10,30 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <!-- <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.2/css/all.min.css"> -->
 
-    
+    <style>
+        /* 已有样式... */
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* 目录面板通用样式（半透明+磨砂+缩小） */
+        .toc-panel {
+            background: rgba(255, 255, 255, 0.78);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            border-radius: 14px;
+        }
+
+        /* 高亮当前 section 的链接 */
+        .toc-link-active {
+            color: #2563eb;              /* tailwind 的 blue-600 */
+            font-weight: 600;
+            border-left: 3px solid #2563eb;
+            padding-left: 0.5rem;        /* 让高亮时稍微缩进一点 */
+        }
+    </style>
+
 
     <style>
         
@@ -99,6 +122,10 @@
 
 
 <body class="font-sans antialiased">
+    
+
+
+
     <nav id="main-nav" class="fixed top-0 left-0 right-0 w-full z-50 transition-colors duration-300">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex items-center justify-between h-16">
@@ -135,6 +162,28 @@
         </div>
     </nav>
     
+    <!-- 左侧目录：桌面端始终显示，移动端通过按钮打开 -->
+    <!-- 移动端 TOC 开关按钮 -->
+    <button
+        id="toc-toggle"
+        class="md:hidden fixed left-3 top-20 z-50 px-3 py-1 rounded-full bg-white bg-opacity-80 shadow-lg text-xs font-medium">
+        TOC
+    </button>
+
+    <!-- 通用目录面板：md 以上默认显示，移动端通过按钮控制 -->
+    <div
+        id="toc-panel"
+        class="toc-panel fixed left-3 top-1/2 transform -translate-y-1/2 z-40 w-40 md:w-44 px-3 py-3 text-xs md:text-sm text-gray-700 shadow-lg hidden md:block">
+    
+        <nav class="flex flex-col space-y-4 pl-4 text-gray-400 font-medium">
+            <a href="#image-generation" class="toc-link block hover:text-blue-600">Image Generation</a>
+            <a href="#video-generation" class="toc-link block hover:text-blue-600">Video Generation</a>
+            <a href="#customized-video-generation" class="toc-link block hover:text-blue-600">Customized Video Generation</a>
+            <a href="#image-editing" class="toc-link block hover:text-blue-600">Image Editing</a>
+            <a href="#instruction-based-video-editing" class="toc-link block hover:text-blue-600">Instruction-Based Video Editing</a>
+            <a href="#video-generation-driven" class="toc-link block hover:text-blue-600">Video generation driven by reference video</a>
+        </nav>
+    </div>
 
 
     <div class="bg-video-wrapper min-h-screen flex items-center pt-20">
@@ -165,7 +214,8 @@
                             SOTAMak1r
                         </span> 
                         <br>
-                        <span class="text-sm">
+                        <span class="text-md">
+                            The paper and code are currently undergoing internal review.
                         </span>
                     </div>
                 </div>
@@ -174,8 +224,7 @@
     </div>
 
 
-
-    <div class="bg-white py-24">
+    <div class="bg-white py-24" id="image-generation">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-bold mb-4">Image Generation</h2>
@@ -695,8 +744,7 @@
     </div>
 
 
-
-    <div class="bg-gray-50 py-24">
+    <div class="bg-gray-50 py-24" id="video-generation">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-bold mb-4">Video Generation</h2>
@@ -930,9 +978,7 @@
     </div>
 
 
-
-
-    <div class="bg-white py-24">
+    <div class="bg-white py-24" id="customized-video-generation">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-20">
                 <h2 class="text-3xl font-bold mb-6 text-gray-900">
@@ -2429,9 +2475,8 @@
         </div>
     </div>
 
-
     
-    <div class="bg-gray-50 py-24">
+    <div class="bg-gray-50 py-24" id="image-editing">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-bold mb-4">Image Editing</h2>
@@ -3029,9 +3074,7 @@
     </div>
 
 
-
-
-    <div class="bg-white py-24">
+    <div class="bg-white py-24" id="instruction-based-video-editing">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-20">
                 <h2 class="text-3xl font-bold mb-6 text-gray-900">
@@ -4037,9 +4080,7 @@
     </div>
 
 
-
-
-    <div class="bg-gray-50 py-24">
+    <div class="bg-gray-50 py-24" id="image-ref-video-editing">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-20">
                 <h2 class="text-3xl font-bold mb-6 text-gray-900">
@@ -5252,14 +5293,14 @@
     </div>
 
 
-    <div class="bg-white py-24">
+    <div class="bg-white py-24" id="video-generation-driven">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-20">
                 <h2 class="text-3xl font-bold mb-6 text-gray-900">
-                    Video generation driven by reference videos
+                    Video generation driven by reference video
                 </h2>
                 <p class="text-gray-600 max-w-2xl mx-auto text-lg">
-                    Generative videos by providing reference videos
+                    Generative videos by providing reference video (motion/expression/camera clone)
                 </p>
             </div>
 
@@ -6818,6 +6859,67 @@
             });
         });
     </script> -->
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            const tocPanel = document.getElementById('toc-panel');
+            const tocToggle = document.getElementById('toc-toggle');
+            const tocLinks = tocPanel.querySelectorAll('a.toc-link');
+            const sections = document.querySelectorAll('[data-toc-section]');
+
+            /* --- 移动端：点击按钮展开/收起 TOC --- */
+            if (tocToggle) {
+                tocToggle.addEventListener('click', function () {
+                    tocPanel.classList.toggle('hidden');
+                });
+
+                // 窗口大小变化时：md 以上始终显示，md 以下默认隐藏
+                window.addEventListener('resize', function () {
+                    if (window.innerWidth >= 768) {
+                        tocPanel.classList.remove('hidden');
+                    } else {
+                        tocPanel.classList.add('hidden');
+                    }
+                });
+            }
+
+            /* --- 点击目录后自动收起（仅移动端） --- */
+            tocLinks.forEach(link => {
+                link.addEventListener('click', function () {
+                    if (window.innerWidth < 768) {
+                        tocPanel.classList.add('hidden');
+                    }
+                });
+            });
+
+            /* --- 自动高亮当前章节 --- */
+            const idToLink = {};
+            tocLinks.forEach(link => {
+                const id = link.getAttribute('href').replace('#', '');
+                idToLink[id] = link;
+            });
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        const id = entry.target.id;
+                        const activeLink = idToLink[id];
+                        if (!activeLink) return;
+
+                        tocLinks.forEach(l => l.classList.remove('toc-link-active'));
+                        activeLink.classList.add('toc-link-active');
+                    }
+                });
+            }, {
+                root: null,
+                threshold: 0.2,
+                rootMargin: '0px 0px -60% 0px'  // 提前一点高亮
+            });
+
+            sections.forEach(sec => observer.observe(sec));
+        });
+    </script>
+
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
