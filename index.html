@@ -166,8 +166,8 @@
                 <div class="hidden md:block">
                     <div class="ml-10 flex items-baseline space-x-6">
                         <a href="#" class="text-white/80 hover:text-white px-3 py-2">YouTube</a>
-                        <a href="#" class="text-white/80 hover:text-white px-3 py-2">Paper</a>
-                        <a href="#" class="text-white/80 hover:text-white px-3 py-2">GitHub</a>
+                        <a href="http://arxiv.org/abs/2601.02358" class="text-white/80 hover:text-white px-3 py-2">Paper</a>
+                        <a href="https://github.com/SOTAMak1r/VINO-code" class="text-white/80 hover:text-white px-3 py-2">GitHub</a>
 
                         <div class="relative group">
                             <button class="text-white/80 hover:text-white px-3 py-2 focus:outline-none">
@@ -242,18 +242,28 @@
                 <div class="text-white mb-10 max-w-2xl mx-auto space-y-2">
                     <div class="text-xl font-medium">
                         <span class="text-white">
-                            SOTAMak1r
+                            <a href="https://sotamak1r.github.io/">Junyi Chen</a><sup>1</sup>, 
+                            <a href="https://tonghe90.github.io/">Tong He</a><sup>1</sup>, 
+                            <a href="https://scholar.google.com/citations?user=6bdPeKcAAAAJ&hl=zh-CN&oi=ao">Zhoujie Fu</a><sup>3</sup>, 
+                            <a href="https://magicwpf.github.io/">Pengfei Wan</a><sup>2</sup>, 
+                            <a href="https://scholar.google.com/citations?user=PXO4ygEAAAAJ&hl=zh-CN">Kun Gai</a><sup>2</sup>, 
+                            <a href="https://ywcmaike.github.io/">Weicai Ye</a><sup>2✉️</sup>
                         </span> 
                         <br>
-                        <!-- <span class="text-md">
-                            The paper and code are currently undergoing internal review.
-                        </span> -->
+                        <span class="text-sm">
+                            <sup>1</sup>Shanghai Jiao Tong University, 
+                            <sup>2</sup>Kling Team, Kuaishou Technology
+                            <sup>3</sup>Nanyang Technology University,
+                            <sup>✉️</sup>Corresponding Author
+                        </span>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
+
+    
     <div class="bg-white py-24" id="image-generation">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -270,6 +280,8 @@
             </div>
         </div>
     </div>
+
+
 
     <div class="bg-white py-24" id="image-generation">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -2522,7 +2534,7 @@
         </div>
     </div>
 
-    
+
     <div class="bg-gray-50 py-24" id="image-editing">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-16">
@@ -6868,7 +6880,84 @@
             </div>
         </div>
     </div>
-    
+
+
+    <div class="bg-gray-50 py-24" id="understand-then-generate">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl font-bold mb-4">Understand then Generate</h2>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Place your mouse on video to see the prompt.
+                </p>
+            </div>
+            <div class="relative" id="image-editing-carousel">
+                <!-- Slides Wrapper -->
+                <div class="overflow-hidden">
+                    <div class="flex transition-transform duration-500 ease-in-out" id="und-track">
+                        <!-- Slide 1 -->
+                        
+                        <div class="w-full flex-shrink-0">
+                            <div class="grid grid-cols-1 sm:grid-cols-1 md:grid-cols-2 gap-2">
+                                <!-- Case 1 -->
+                                <div class="relative group">
+                                    <video preload="metadata" class="w-full h-auto rounded-lg shadow-lg cursor-pointer object-cover aspect-square" data-src="https://cdn.jsdelivr.net/gh/SOTAMak1r/VINO-web@main/assets/tasks/undthengen/a1.mp4" autoplay muted loop playsinline></video>
+                                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-lg">
+                                        <span class="text-white text-l font-bold text-center px-4">
+                                            Create a video of event happend at 39.99° N, 116.39° E, 2008.
+                                        </span>
+                                    </div>
+                                </div>
+                                <!-- Case 2 -->
+                                <div class="relative group">
+                                    <video preload="metadata" class="w-full h-auto rounded-lg shadow-lg cursor-pointer object-cover aspect-square" data-src="https://cdn.jsdelivr.net/gh/SOTAMak1r/VINO-web@main/assets/tasks/undthengen/a2.mp4" autoplay muted loop playsinline></video>
+                                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-lg">
+                                        <span class="text-white text-l font-bold text-center px-4">
+                                            Create a video of event happend at 21.4000° N, 89.5000° W, ~66 Million Years Ago.
+                                        </span>
+                                    </div>
+                                </div>
+                                <!-- Case 3 -->
+                                <div class="relative group">
+                                    <video preload="metadata" class="w-full h-auto rounded-lg shadow-lg cursor-pointer object-cover aspect-square" data-src="https://cdn.jsdelivr.net/gh/SOTAMak1r/VINO-web@main/assets/tasks/undthengen/a3.mp4" autoplay muted loop playsinline></video>
+                                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-lg">
+                                        <span class="text-white text-l font-bold text-center px-4">
+                                            Create a video of event happend at 36.0142° N, 75.6677° W, Dec 17, 1903.
+                                        </span>
+                                    </div>
+                                </div>
+                                <!-- Case 4 -->
+                                <div class="relative group">
+                                    <video preload="metadata" class="w-full h-auto rounded-lg shadow-lg cursor-pointer object-cover aspect-square" data-src="https://cdn.jsdelivr.net/gh/SOTAMak1r/VINO-web@main/assets/tasks/undthengen/a4.mp4" autoplay muted loop playsinline></video>
+                                    <div class="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none rounded-lg">
+                                        <span class="text-white text-l font-bold text-center px-4">
+                                            Create a video of what occurred at 35.6895° N, 139.6917° E, early morning, August 6, 1945.
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+
+
+                <!-- Navigation Dots -->
+                <div class="flex justify-center mt-8 space-x-2">
+                    <button class="w-3 h-3 rounded-full bg-gray-800 focus:outline-none transition-colors duration-200 und-dot" onclick="goToUndSlide(0)"></button>
+                    <!-- <button class="w-3 h-3 rounded-full bg-gray-300 hover:bg-gray-400 focus:outline-none transition-colors duration-200 und-dot" onclick="goToUndSlide(1)"></button> -->
+                </div>
+                
+                <!-- Arrows -->
+                <button class="absolute top-1/2 left-0 -translate-y-1/2 -translate-x-12 p-2 rounded-full bg-gray-800 shadow-lg hover:bg-gray-700 focus:outline-none hidden md:block" onclick="prevUndSlide()">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                </button>
+                <button class="absolute top-1/2 right-0 -translate-y-1/2 translate-x-12 p-2 rounded-full bg-gray-800 shadow-lg hover:bg-gray-700 focus:outline-none hidden md:block" onclick="nextUndSlide()">
+                    <svg class="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                </button>
+            </div>
+        </div>
+    </div>
 
 
 
@@ -7536,6 +7625,49 @@
         window.nextStoryboardSlide = nextStoryboardSlide;
         window.prevStoryboardSlide = prevStoryboardSlide;
 
+
+
+        // Und Carousel Logic
+        let currentUndSlide = 0;
+        const totalUndSlides = 2;
+
+        function updateUndCarousel() {
+            const track = document.getElementById('und-track');
+            const dots = document.querySelectorAll('.und-dot');
+            
+            // Update track position
+            track.style.transform = `translateX(-${currentUndSlide * 100}%)`;
+            
+            // Update dots
+            dots.forEach((dot, index) => {
+                if (index === currentUndSlide) {
+                    dot.classList.remove('bg-gray-300', 'hover:bg-gray-400');
+                    dot.classList.add('bg-gray-800');
+                } else {
+                    dot.classList.add('bg-gray-300', 'hover:bg-gray-400');
+                    dot.classList.remove('bg-gray-800');
+                }
+            });
+        }
+
+        function goToUndSlide(slideIndex) {
+            currentUndSlide = slideIndex;
+            updateUndCarousel();
+        }
+
+        function nextUndSlide() {
+            currentUndSlide = (currentUndSlide + 1) % totalUndSlides;
+            updateUndCarousel();
+        }
+
+        function prevUndSlide() {
+            currentUndSlide = (currentUndSlide - 1 + totalUndSlides) % totalUndSlides;
+            updateUndCarousel();
+        }
+
+        window.goToUndSlide = goToUndSlide;
+        window.nextUndSlide = nextUndSlide;
+        window.prevUndSlide = prevUndSlide;
 
 
 
