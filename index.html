@@ -363,158 +363,158 @@
         
         /* --- Multi-Image Gallery Styling --- */
 
-/* Container for the images within the preview card */
-.vino-card .ref-preview .gallery-grid {
-    width: 100%;
-    height: 100%;
-    display: grid;
-    overflow: hidden;
-    background: #000; /* Black background for gaps */
-}
+        /* Container for the images within the preview card */
+        .vino-card .ref-preview .gallery-grid {
+            width: 100%;
+            height: 100%;
+            display: grid;
+            overflow: hidden;
+            background: #000; /* Black background for gaps */
+        }
 
-/* Base image styling */
-.vino-card .ref-preview .gallery-grid img {
-    width: 100%;
-    height: 100%;
-    object-fit: cover; /* Ensures images fill their grid cells */
-    display: block;
-}
+        /* Base image styling */
+        .vino-card .ref-preview .gallery-grid img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Ensures images fill their grid cells */
+            display: block;
+        }
 
-/* Layout 1: Single Full Image */
-.gallery-grid.layout-1 {
-    grid-template-columns: 1fr;
-}
+        /* Layout 1: Single Full Image */
+        .gallery-grid.layout-1 {
+            grid-template-columns: 1fr;
+        }
 
-/* Layout 2: Split Vertical (50/50) */
-.gallery-grid.layout-2 {
-    grid-template-columns: 1fr 1fr;
-    gap: 2px; /* Small gap between images */
-}
+        /* Layout 2: Split Vertical (50/50) */
+        .gallery-grid.layout-2 {
+            grid-template-columns: 1fr 1fr;
+            gap: 2px; /* Small gap between images */
+        }
 
-/* Layout 3: 1 Big (Left), 2 Small (Right Stacked) */
-.gallery-grid.layout-3 {
-    grid-template-columns: 1.5fr 1fr; /* Left side slightly wider */
-    grid-template-rows: 1fr 1fr;
-    gap: 2px;
-}
-.gallery-grid.layout-3 img:nth-child(1) {
-    grid-row: 1 / span 2; /* First image spans full height */
-}
+        /* Layout 3: 1 Big (Left), 2 Small (Right Stacked) */
+        .gallery-grid.layout-3 {
+            grid-template-columns: 1.5fr 1fr; /* Left side slightly wider */
+            grid-template-rows: 1fr 1fr;
+            gap: 2px;
+        }
+        .gallery-grid.layout-3 img:nth-child(1) {
+            grid-row: 1 / span 2; /* First image spans full height */
+        }
 
-/* Layout 4: 2x2 Grid */
-.gallery-grid.layout-4 {
-    grid-template-columns: 1fr 1fr;
-    grid-template-rows: 1fr 1fr;
-    gap: 2px;
-}
+        /* Layout 4: 2x2 Grid */
+        .gallery-grid.layout-4 {
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 2px;
+        }
 
-/* Fix for the Input Card since it has no video */
-/* This ensures the card maintains the same aspect ratio as video cards */
-.vino-card .img-placeholder {
-    width: 100%;
-    padding-top: 56.25%; /* 16:9 Aspect Ratio */
-    background-color: #1a1a1a; /* Dark placeholder bg */
-}
+        /* Fix for the Input Card since it has no video */
+        /* This ensures the card maintains the same aspect ratio as video cards */
+        .vino-card .img-placeholder {
+            width: 100%;
+            padding-top: 56.25%; /* 16:9 Aspect Ratio */
+            background-color: #1a1a1a; /* Dark placeholder bg */
+        }
 
-/* Ensure the Reference Label stays on top of the images */
-.vino-card .ref-preview .ref-label {
-    z-index: 5;
-    background: rgba(0, 0, 0, 0.7); /* Slightly darker for readability */
-}
+        /* Ensure the Reference Label stays on top of the images */
+        .vino-card .ref-preview .ref-label {
+            z-index: 5;
+            background: rgba(0, 0, 0, 0.7); /* Slightly darker for readability */
+        }
 
-/* === Independent Multi Ref Preview === */
-/* === FIX: Multi-ref thumbnails (compact grid, no vertical stretching) === */
-.ref-preview.ref-preview-multi{
-  position:absolute;
-  top:10px;
-  left:10px;
-  z-index:20;
+        /* === Independent Multi Ref Preview === */
+        /* === FIX: Multi-ref thumbnails (compact grid, no vertical stretching) === */
+        .ref-preview.ref-preview-multi{
+        position:absolute;
+        top:10px;
+        left:10px;
+        z-index:20;
 
-  /* 覆盖旧 ref-preview 的宽度逻辑，别再用百分比 */
-  width:auto !important;
-  max-width:none !important;
+        /* 覆盖旧 ref-preview 的宽度逻辑，别再用百分比 */
+        width:auto !important;
+        max-width:none !important;
 
-  display:grid;
-  gap:4px;
-  padding:6px;
-  border-radius:10px;
-  overflow:hidden;
+        display:grid;
+        gap:4px;
+        padding:6px;
+        border-radius:10px;
+        overflow:hidden;
 
-  background: rgba(0,0,0,0.35);
-  border: 1px solid rgba(255,255,255,0.2);
-  box-shadow: 0 4px 10px rgba(0,0,0,0.35);
-  backdrop-filter: blur(6px);
-}
+        background: rgba(0,0,0,0.35);
+        border: 1px solid rgba(255,255,255,0.2);
+        box-shadow: 0 4px 10px rgba(0,0,0,0.35);
+        backdrop-filter: blur(6px);
+        }
 
-/* 默认：2列（适合 3~4 张） */
-.ref-preview.ref-preview-multi{ grid-template-columns: repeat(2, 56px); }
+        /* 默认：2列（适合 3~4 张） */
+        .ref-preview.ref-preview-multi{ grid-template-columns: repeat(2, 56px); }
 
-/* 1张：1列 */
-.ref-preview.ref-preview-multi[data-n="1"]{ grid-template-columns: 56px; }
+        /* 1张：1列 */
+        .ref-preview.ref-preview-multi[data-n="1"]{ grid-template-columns: 56px; }
 
-/* 2张：2列一行 */
-.ref-preview.ref-preview-multi[data-n="2"]{ grid-template-columns: repeat(2, 56px); }
+        /* 2张：2列一行 */
+        .ref-preview.ref-preview-multi[data-n="2"]{ grid-template-columns: repeat(2, 56px); }
 
-/* 每个缩略图固定大小，永远不会拉成长条 */
-.ref-preview.ref-preview-multi .ref-item{
-  width:56px;
-  height:56px;
-  border-radius:8px;
-  overflow:hidden;
-  background:#000;
-  border:1px solid rgba(255,255,255,0.18);
-}
+        /* 每个缩略图固定大小，永远不会拉成长条 */
+        .ref-preview.ref-preview-multi .ref-item{
+        width:56px;
+        height:56px;
+        border-radius:8px;
+        overflow:hidden;
+        background:#000;
+        border:1px solid rgba(255,255,255,0.18);
+        }
 
-.ref-preview.ref-preview-multi .ref-item img{
-  width:100%;
-  height:100%;
-  object-fit:cover;
-  display:block;
-}
+        .ref-preview.ref-preview-multi .ref-item img{
+        width:100%;
+        height:100%;
+        object-fit:cover;
+        display:block;
+        }
 
-/* label 放到最下面，占满整行 */
-.ref-preview.ref-preview-multi .ref-label{
-  grid-column: 1 / -1;
-  margin-top:2px;
-  font-size:9px;
-  text-align:center;
-  color: rgba(255,255,255,0.85);
-  background: rgba(0,0,0,0.35);
-  border-radius:8px;
-  padding:2px 4px;
-}
+        /* label 放到最下面，占满整行 */
+        .ref-preview.ref-preview-multi .ref-label{
+        grid-column: 1 / -1;
+        margin-top:2px;
+        font-size:9px;
+        text-align:center;
+        color: rgba(255,255,255,0.85);
+        background: rgba(0,0,0,0.35);
+        border-radius:8px;
+        padding:2px 4px;
+        }
 
-/* === Horizontal Reference Strip (Large, Single Row) === */
-.ref-strip{
-    position:absolute;
-    top:16px;
-    left:16px;
-    z-index:30;
-    display:flex;
-    gap:12px;
-}
+        /* === Horizontal Reference Strip (Large, Single Row) === */
+        .ref-strip{
+            position:absolute;
+            top:16px;
+            left:16px;
+            z-index:30;
+            display:flex;
+            gap:12px;
+        }
 
-.ref-strip .ref-item{
-    width:110px;
-    height:110px;
-    border-radius:16px;
-    overflow:hidden;
+        .ref-strip .ref-item{
+            width:110px;
+            height:110px;
+            border-radius:16px;
+            overflow:hidden;
 
-    background: rgba(255,255,255,0.95);
-    border: 1px solid rgba(255,255,255,0.35);
-    box-shadow: 0 8px 18px rgba(0,0,0,0.45);
+            background: rgba(255,255,255,0.95);
+            border: 1px solid rgba(255,255,255,0.35);
+            box-shadow: 0 8px 18px rgba(0,0,0,0.45);
 
-    display:flex;
-    align-items:center;
-    justify-content:center;
-}
+            display:flex;
+            align-items:center;
+            justify-content:center;
+        }
 
-.ref-strip .ref-item img{
-    width:100%;
-    height:100%;
-    object-fit:contain;   /* ✅ 不裁、不拉伸 */
-    display:block;
-}
+        .ref-strip .ref-item img{
+            width:100%;
+            height:100%;
+            object-fit:contain;   /* ✅ 不裁、不拉伸 */
+            display:block;
+        }
 
 
 
@@ -1408,9 +1408,9 @@
         <section id="multi-image-generation">
             <div class="text-center" style="margin-top: 50px;">
                 <div class="section-header">Multi-Image Conditioned Generation</div>
-                <div class="section-desc">
+                <!-- <div class="section-desc">
                 <strong>Multiple Inputs, Coherent Motion:</strong> Generate consistent video content conditioned on 1 to 4 reference images simultaneously.
-                </div>
+                </div> -->
             </div>
 
             <div class="grid-layout dynamic">
